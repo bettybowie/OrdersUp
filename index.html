@@ -25,28 +25,32 @@
     <main>
         <div class="homepage">
             <h2>Let's make a meal!</h2>
-            <div class="select">
-                <select>
-                  <option>What are you craving for?</option>
-                  <option>Beef</option>
-                  <option>Chicken</option>
-                  <option>Dessert</option>
-                  <option>Lamb</option>
-                  <option>Micellaneous</option>
-                  <option>Pasta</option>
-                  <option>Pork</option>
-                  <option>Seafood</option>
-                  <option>Starter</option>
-                  <option>Vegan</option>
-                  <option>Vegeterian</option>
-                  <option>Breakfast</option>
-                  <option>Goat</option>
-                  <option>Side</option>
-                </select>
+            <div class="select is-rounded">
+                <form class="select">
+                    <select id="category">
+                        <option value="" selected>What are you craving for?</option>
+                        <option value="beef">Beef</option>
+                        <option value="chicken">Chicken</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="lamb">Lamb</option>
+                        <option value="micellaneous">Micellaneous</option>
+                        <option value="option">Pasta</option>
+                        <option value="pork">Pork</option>
+                        <option value="seafood">Seafood</option>
+                        <option value="starter">Starter</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegeterian">Vegeterian</option>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="goat">Goat</option>
+                        <option value="side">Side</option>
+                    </select>
+                    <input type="submit">
+                </form>
               </div> 
         </div>
         <div class="result-page hidden">
-
+            <div class="meal-result"></div>
+            <div class="random-drink"></div>
         </div>
         <div class="saved-page hidden">
 
