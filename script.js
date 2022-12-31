@@ -1,6 +1,6 @@
 // Declare variables
-var mealUrl = "http://www.themealdb.com/api/json/v1/1/filter.php?c=";
-var drinkUrl = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
+var mealUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+var drinkUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 var category = document.getElementById('category');
 var categorySelect = document.querySelector('.select');
 var homePage = document.querySelector('.homepage');
@@ -8,8 +8,8 @@ var resultPage = document.querySelector('.result-page');
 var savedPage = document.querySelector('.saved-page');
 var mealResults = document.querySelector('.meal-result');
 var randomDrink = document.querySelector('.random-drink');
-
-
+var saveMeal = document.querySelector('#save-meal');
+var savePgeBtn = document.querySelector('#archiveBtn');
 
 
 var showRecipe = function (choice) {
@@ -41,11 +41,12 @@ var showRecipe = function (choice) {
                         cardEle.classList.add('card-content');
                         var headerEl = document.createElement('div');
                         headerEl.classList.add('media-content');
-                        var mealTitle = document.createElement('p');
-                        mealTitle = mealName;
-                        var button = document.createElement('button');
-                        button.classList.add('button');
-                        button.innerText = "save";
+                        var mealForm = document.createElement('form');
+                        mealForm.classList.add('meal-form');
+                        mealForm.innerHTML = `
+                        <input type="text" value="${mealName}">
+                        <button type="submit" class="button" id="save-meal">Save</button>
+                        `
 
                         mealResults.append(cardEl);
                         cardEl.append(mealImgDiv);
@@ -53,8 +54,14 @@ var showRecipe = function (choice) {
                         cardEle.append(headerEl);
                         mealImgDiv.append(mealImgFig);
                         mealImgDiv.append(mealImage);
-                        headerEl.append(mealTitle);
-                        cardEle.append(button);
+                        headerEl.append(mealForm);
+
+
+                          
+    
+                        
+                        
+                        
                     }
                 })
             } else {
@@ -90,6 +97,7 @@ var showDrink = function() {
 
                     randomDrink.append(drinkDiv);
                     drinkDiv.append(button);
+
                 })
             } else {
                 alert('Error' + response.statusText);
@@ -117,3 +125,11 @@ var formSubmitHandler = function(e) {
 }
         
 categorySelect.addEventListener('submit', formSubmitHandler);
+
+savePgeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    homePage.style.display = "none";
+    resultPage.style.display = "none";
+    savedPage.style.display = "block";
+})
