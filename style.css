@@ -2,6 +2,14 @@
 
 }
 
+
+
 .hidden {
     display: none;
+}
+
+.homepage {
+display: flex;
+justify-content: center;
+align-items: center;
 }
