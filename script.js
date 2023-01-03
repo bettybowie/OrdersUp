@@ -56,11 +56,6 @@ var showRecipe = function (choice) {
                         mealImgDiv.append(mealImage);
                         headerEl.append(mealForm);
                         
-                        saveMealBtn.forEach(function(currentBtn){
-                            currentBtn.addEventListener('click', function(e) {
-                                console.log('o');
-                            })
-                          })
                     }
                 })
             } else {
@@ -78,24 +73,22 @@ var showDrink = function() {
         .then(function(response) {
             if (response.ok) {
                 console.log(response);
+
                 response.json().then(function(data) {
                     console.log(data);
+
                     var drinkImg = data.drinks[0].strDrinkThumb;
                     var drinkName = data.drinks[0].strDrink;
 
                     var drinkDiv = document.createElement('div');
-                    drinkDiv.classList.add('card');                    
+                    drinkDiv.classList.add('card');                  
                     drinkDiv.innerHTML = `
                     <h2> Here is a cocktail that you can pair with your meal. </h2>
                     <img src="${drinkImg}" alt="cocktail image"></img>
                     <h3> ${drinkName} </h3>
                     `
-                    var button = document.createElement('button');
-                    button.classList.add('button');
-                    button.innerText = "save";
 
                     randomDrink.append(drinkDiv);
-                    drinkDiv.append(button);
 
                 })
             } else {
@@ -120,16 +113,13 @@ var formSubmitHandler = function(e) {
         savedPage.style.display = "none";
         showRecipe(choice);
         showDrink();
+        randomDrink.innerHTML = '';
     };
 }
         
 categorySelect.addEventListener('submit', formSubmitHandler);
 
-// saveMealBtn.addEventListener('submit', function(e) {
-//     e.preventDefault();
 
-//     console.log(drinkName);
-// })
 
 function displaySaveList () {
 
