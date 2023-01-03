@@ -13,7 +13,7 @@ var savePgeBtn = document.querySelector('#archiveBtn');
 var backHomeBtn = document.querySelector('#back-home');
 var mealListResults = [];
 
-
+// function to fetch API and display results 
 var showRecipe = function (choice) {
     var recipeUrl = mealUrl + choice;
 
@@ -55,7 +55,6 @@ var showRecipe = function (choice) {
                         <h3> ${mealName}</h3>
                         <button id="meal-${i}" class="button save-meal">Save</button>
                         `
-
                         mealResults.append(cardEl);
                         cardEl.append(mealImgDiv);
                         cardEl.append(cardEle);
@@ -74,6 +73,7 @@ var showRecipe = function (choice) {
         })
 }
 
+// function to save meals to local storage
 mealResults.addEventListener('click', function(e) {
     if (!e.target.matches('.save-meal')) {
         return;
@@ -91,6 +91,7 @@ mealResults.addEventListener('click', function(e) {
     localStorage.setItem('meals', JSON.stringify(savedMealArray));
 })
 
+// function to dislay saved meals from local storage
 function displaySaveList () {
     var savedMealArray = JSON.parse(localStorage.getItem('meals'))|| [];
 
@@ -99,31 +100,31 @@ function displaySaveList () {
         let mealImg = savedMealArray[i].mealImg;
 
         var cardEl = document.createElement('div');
-                        cardEl.classList.add('card');
-                        var mealImgDiv = document.createElement('div');
-                        mealImgDiv.classList.add('card-image');
-                        var mealImgFig = document.createElement('figure');
-                        mealImgFig.classList.add('image');
-                        var mealImage = document.createElement('img');
-                        mealImage.src = mealImg;
-                        var cardEle = document.createElement('div');
-                        cardEle.classList.add('card-content');
-                        var headerEl = document.createElement('div');
-                        headerEl.classList.add('media-content');
-                        headerEl.innerHTML = `
-                        <h3> ${mealName}</h3>
-                        `
-
-                        savedPage.append(cardEl);
-                        cardEl.append(mealImgDiv);
-                        cardEl.append(cardEle);
-                        cardEle.append(headerEl);
-                        mealImgDiv.append(mealImgFig);
-                        mealImgDiv.append(mealImage);
-
+        
+        cardEl.classList.add('card');
+        var mealImgDiv = document.createElement('div');
+        mealImgDiv.classList.add('card-image');
+        var mealImgFig = document.createElement('figure');
+        mealImgFig.classList.add('image');
+        var mealImage = document.createElement('img');
+        mealImage.src = mealImg;
+        var cardEle = document.createElement('div');
+        cardEle.classList.add('card-content');
+        var headerEl = document.createElement('div');
+        headerEl.classList.add('media-content');
+        headerEl.innerHTML = `
+        <h3> ${mealName}</h3>
+        `
+        savedPage.append(cardEl);
+        cardEl.append(mealImgDiv);
+        cardEl.append(cardEle);
+        cardEle.append(headerEl);
+        mealImgDiv.append(mealImgFig);
+        mealImgDiv.append(mealImage);
     }
 }
 
+// function to fetch API and display result
 var showDrink = function() {
     
     fetch(drinkUrl)
@@ -144,7 +145,6 @@ var showDrink = function() {
                     <img src="${drinkImg}" alt="cocktail image"></img>
                     <h3> ${drinkName} </h3>
                     `
-
                     randomDrink.append(drinkDiv);
 
                 })
@@ -157,6 +157,7 @@ var showDrink = function() {
         })
 }
 
+// function to display results after submit button
 var formSubmitHandler = function(e) {
     e.preventDefault();
         
@@ -173,16 +174,19 @@ var formSubmitHandler = function(e) {
         randomDrink.innerHTML = '';
     };
 }
-        
+
+// event listener to submit button
 categorySelect.addEventListener('submit', formSubmitHandler);
 
 
+// event listener to homepage button
 backHomeBtn.addEventListener('click', function(e) {
     homePage.style.display = 'block';
     resultPage.style.display = 'none';
     savedPage.style.display = 'none';    
 })
 
+// event listener to saved page button
 savePgeBtn.addEventListener('click', function(e) {
     homePage.style.display = 'none';
     resultPage.style.display = 'none';
