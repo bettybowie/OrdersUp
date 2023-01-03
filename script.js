@@ -8,9 +8,9 @@ var resultPage = document.querySelector('.result-page');
 var savedPage = document.querySelector('.saved-page');
 var mealResults = document.querySelector('.meal-result');
 var randomDrink = document.querySelector('.random-drink');
-var saveMeal = document.querySelector('#save-meal');
+var saveMealBtn = document.querySelector('.save-meal');
 var savePgeBtn = document.querySelector('#archiveBtn');
-
+var backHomeBtn = document.querySelector('#back-home');
 
 var showRecipe = function (choice) {
     var recipeUrl = mealUrl + choice;
@@ -45,7 +45,7 @@ var showRecipe = function (choice) {
                         mealForm.classList.add('meal-form');
                         mealForm.innerHTML = `
                         <input type="text" value="${mealName}">
-                        <button type="submit" class="button" id="save-meal">Save</button>
+                        <button type="submit" class="button save-meal">Save</button>
                         `
 
                         mealResults.append(cardEl);
@@ -55,13 +55,12 @@ var showRecipe = function (choice) {
                         mealImgDiv.append(mealImgFig);
                         mealImgDiv.append(mealImage);
                         headerEl.append(mealForm);
-
-
-                          
-    
                         
-                        
-                        
+                        saveMealBtn.forEach(function(currentBtn){
+                            currentBtn.addEventListener('click', function(e) {
+                                console.log('o');
+                            })
+                          })
                     }
                 })
             } else {
@@ -107,7 +106,7 @@ var showDrink = function() {
             alert('Unable to connect to CocktailDB');
         })
 }
-        
+
 var formSubmitHandler = function(e) {
     e.preventDefault();
         
@@ -126,10 +125,29 @@ var formSubmitHandler = function(e) {
         
 categorySelect.addEventListener('submit', formSubmitHandler);
 
+// saveMealBtn.addEventListener('submit', function(e) {
+//     e.preventDefault();
+
+//     console.log(drinkName);
+// })
+
+function displaySaveList () {
+
+}
+
+backHomeBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    homePage.style.display = "block";
+    resultPage.style.display = "none";
+    savedPage.style.display = "none";    
+})
+
 savePgeBtn.addEventListener('click', function(e) {
     e.preventDefault();
     
     homePage.style.display = "none";
     resultPage.style.display = "none";
     savedPage.style.display = "block";
+    displaySaveList();
 })
