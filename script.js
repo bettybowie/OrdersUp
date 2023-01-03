@@ -191,6 +191,6 @@ savePgeBtn.addEventListener('click', function(e) {
     homePage.style.display = 'none';
     resultPage.style.display = 'none';
     savedPage.style.display = 'block';
-    savedPage.innerHTML = '';
+    savedPage.innerHTML = `<h2>Archived Meals</h2>`;
     displaySaveList();
 })
