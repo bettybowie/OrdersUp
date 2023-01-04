@@ -169,7 +169,7 @@ var formSubmitHandler = function(e) {
         alert('Please pick a category!')
     } else {
         homePage.style.display = 'none';
-        resultPage.style.display = 'block';
+        resultPage.style.display = 'flex';
         savedPage.style.display = 'none';
         showRecipe(choice);
         showDrink();
@@ -183,7 +183,7 @@ categorySelect.addEventListener('submit', formSubmitHandler);
 
 // event listener to homepage button
 backHomeBtn.addEventListener('click', function(e) {
-    homePage.style.display = 'block';
+    homePage.style.display = 'flex';
     resultPage.style.display = 'none';
     savedPage.style.display = 'none';    
 })
@@ -192,8 +192,8 @@ backHomeBtn.addEventListener('click', function(e) {
 savePgeBtn.addEventListener('click', function(e) {
     homePage.style.display = 'none';
     resultPage.style.display = 'none';
-    savedPage.style.display = 'block';
-    savedPage.innerHTML = `<h2>Archived Meals</h2>`;
+    savedPage.style.display = 'flex';
+    savedPage.innerHTML = `<div><h2>Archived Meals</h2></div>`;
     displaySaveList();
 })
 
