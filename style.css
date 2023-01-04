@@ -4,7 +4,24 @@
 }
 
 .homepage {
-display: flex;
-justify-content: center;
-align-items: center;
-}
+    margin-top: 10%;
+    display: grid;
+    place-items: center;
+    }
+    
+    
+    #back-home {
+        margin-top: 25px;
+        border: none;
+        background: none;
+    }
+    
+    #archiveBtn {
+        margin-top: 25px;
+        border: none;
+        background: none;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
