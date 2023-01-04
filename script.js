@@ -183,7 +183,7 @@ categorySelect.addEventListener('submit', formSubmitHandler);
 
 // event listener to homepage button
 backHomeBtn.addEventListener('click', function(e) {
-    homePage.style.display = 'flex';
+    homePage.style.display = 'grid';
     resultPage.style.display = 'none';
     savedPage.style.display = 'none';    
 })

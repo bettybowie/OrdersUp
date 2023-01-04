@@ -3,13 +3,14 @@
     display: none;
 }
 
+/* Centering main content   */
 .homepage {
     margin-top: 10%;
     display: grid;
     place-items: center;
     }
     
-    
+    /* Getting rid of borders around btn */
     #back-home {
         margin-top: 25px;
         border: none;
@@ -22,6 +23,7 @@
         background: none;
     }
     
+    /* Adjusting font size for Main content */
     h2 {
-        font-size: 3rem;
+        font-size: 5rem;
     }
