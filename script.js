@@ -1,3 +1,4 @@
+
 // Declare variables
 var mealUrl = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=';
 var drinkUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
@@ -12,6 +13,7 @@ var saveMealBtn = document.querySelector('.save-meal');
 var savePgeBtn = document.querySelector('#archiveBtn');
 var backHomeBtn = document.querySelector('#back-home');
 var mealListResults = [];
+
 
 // function to fetch API and display results 
 var showRecipe = function (choice) {
@@ -194,3 +196,4 @@ savePgeBtn.addEventListener('click', function(e) {
     savedPage.innerHTML = `<h2>Archived Meals</h2>`;
     displaySaveList();
 })
+
