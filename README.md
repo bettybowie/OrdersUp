@@ -10,7 +10,7 @@ On the home page, users can select from a list of food categories.
 
 When a category is selected and submit button is clicked, several sets of meal name and image will display.
 
-A random cocktail drink will also be display on the bottom of the page.
+A random cocktail drink will also be display on the page.
 
 Users will have the option to save the meals that they are interested in.
 
