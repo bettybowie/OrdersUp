@@ -21,7 +21,7 @@ When the user click the Order's Up button, they will be taken to the home page.
 
 ## Visual
 
-![Demo](./)
+![Demo](./OrdersUp.gif)
 
 ## Links
 
