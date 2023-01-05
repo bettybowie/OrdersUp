@@ -192,8 +192,8 @@ backHomeBtn.addEventListener('click', function(e) {
 savePgeBtn.addEventListener('click', function(e) {
     homePage.style.display = 'none';
     resultPage.style.display = 'none';
-    savedPage.style.display = 'flex';
-    savedPage.innerHTML = `<div><h2>Archived Meals</h2></div>`;
+    savedPage.style.display = 'grid';
+    savedPage.innerHTML = `<div><h2>Archived Meals:</h2></div>`;
     displaySaveList();
 })
 
